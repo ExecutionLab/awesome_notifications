@@ -739,6 +739,7 @@ public class NotificationBuilder {
     private void setBadge(Context context, NotificationModel notificationModel, NotificationChannelModel channelModel, NotificationCompat.Builder builder) {
         if (notificationModel.content.badge != null){
             BadgeManager.getInstance().setGlobalBadgeCounter(context, notificationModel.content.badge);
+            builder.setNumber(notificationModel.content.badge);
             return;
         }
         if (!notificationModel.groupSummary && BooleanUtils.getInstance().getValue(channelModel.channelShowBadge)) {
